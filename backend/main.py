@@ -24,7 +24,8 @@ async def main():
         model="openai/gpt-4.1",
         mcp_servers=[
             "joerup/exa-mcp",         # Semantic search engine
-            "windsor/brave-search-mcp"  # Privacy-focused web search
+            "windsor/brave-search-mcp",  # Privacy-focused web search
+            "kaggle-mcp-server"       # Kaggle datasets and competitions
         ]
     )
 
