@@ -1,4 +1,5 @@
 import asyncio
+import os
 
 from dotenv import load_dotenv
 
@@ -25,7 +26,14 @@ async def main():
         mcp_servers=[
             "joerup/exa-mcp",         # Semantic search engine
             "windsor/brave-search-mcp",  # Privacy-focused web search
-            "kaggle-mcp-server"       # Kaggle datasets and competitions
+            {
+                "command": "python",
+                "args": ["-m", "kaggle_mcp.server"],
+                "env": {
+                    "KAGGLE_USERNAME": os.getenv("KAGGLE_USERNAME"),
+                    "KAGGLE_KEY": os.getenv("KAGGLE_KEY")
+                }
+            }  # Kaggle datasets and competitions
         ]
     )
 
